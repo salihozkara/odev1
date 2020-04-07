@@ -40,7 +40,8 @@ void anaMenu(int *sayi)
         case 3:
             exit(1);
         default:
-            printf("hatali giris!!");
+            printf("hatali giris!!\n");
+            system("PAUSE");
             anaMenu(&*sayi);
     }
 }
@@ -83,11 +84,10 @@ void aracEkle(int *aracSayisi)
 }
 void listele(int *aracSayisi)
 {
-    /*int sayi;
-    sayi=*aracSayisi;*/
     if(*aracSayisi==0)
     {
         printf("liste bos!!!\n");
+        system("PAUSE");
         anaMenu(&*aracSayisi);
     }
     printf("plaka                         model                         renk                          saat\n");
