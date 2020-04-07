@@ -32,17 +32,17 @@ void anaMenu(int *sayi)
     switch (secim)
     {
         case 1:
-            aracEkle(&*sayi);
+            aracEkle(sayi);
             break;
         case 2:
-            listele(&*sayi);
+            listele(sayi);
             break;
         case 3:
             exit(1);
         default:
             printf("hatali giris!!\n");
             system("PAUSE");
-            anaMenu(&*sayi);
+            anaMenu(sayi);
     }
 }
 void aracEkle(int *aracSayisi)
@@ -54,7 +54,8 @@ void aracEkle(int *aracSayisi)
     }
     char gereksiz;
     printf("plaka:");
-    scanf("%s",arac[*aracSayisi].plaka);
+    fflush(stdin);
+    gets(arac[*aracSayisi].plaka);
     for (int i = 0; i <*aracSayisi ; ++i) {
         if(strcmp(arac[*aracSayisi].plaka,arac[i].plaka)==0)
         {
@@ -63,9 +64,10 @@ void aracEkle(int *aracSayisi)
         }
     }
     printf("model:");
-    scanf("%s",arac[*aracSayisi].model);
+    //fflush(stdin);
+    gets(arac[*aracSayisi].model);
     printf("renk:");
-    scanf("%s",arac[*aracSayisi].renk);
+    gets(arac[*aracSayisi].renk);
     printf("saat(lutfen arasina nokta koyunuz):");
     scanf("%d %c %d %c %d",&saat[*aracSayisi].h,&gereksiz,&saat[*aracSayisi].dk,&gereksiz,&saat[*aracSayisi].sn);
     for (int j = 0; j <1 ; ++j) {
@@ -80,7 +82,7 @@ void aracEkle(int *aracSayisi)
         }}
 
     system("pause");
-    anaMenu(&*aracSayisi);
+    anaMenu(aracSayisi);
 }
 void listele(int *aracSayisi)
 {
@@ -88,7 +90,7 @@ void listele(int *aracSayisi)
     {
         printf("liste bos!!!\n");
         system("PAUSE");
-        anaMenu(&*aracSayisi);
+        anaMenu(aracSayisi);
     }
     printf("plaka                         model                         renk                          saat\n");
     for (int i = 0; i <*aracSayisi ; ++i) {
@@ -105,5 +107,5 @@ void listele(int *aracSayisi)
     }
     printf("toplam %2d arac var\n",*aracSayisi);
 system("pause");
-anaMenu(&*aracSayisi);
+anaMenu(aracSayisi);
 }
